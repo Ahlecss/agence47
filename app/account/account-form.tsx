@@ -130,7 +130,8 @@ export default function AccountForm({ session }: { session: Session | null }) {
 
       <div>
         <button
-          className="button primary block font-bold mb-12 border border-white px-2 py-2"
+          className="button primary block font-bold mb-12 border border-white px-2 py-2
+          bg-green-700 rounded-md px-4 py-2 text-foreground mb-2"
           onClick={() => updateProfile({ nameCollectivity, nameEcole, lastRenovationYear, priceLastRenovation })}
           disabled={loading}
         >

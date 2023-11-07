@@ -73,7 +73,7 @@ export default function Login({
         >
           <polyline points="15 18 9 12 15 6" />
         </svg>{' '}
-        Back
+        Retour
       </Link>
 
       <form
@@ -81,7 +81,7 @@ export default function Login({
         action={signIn}
       >
         <label className="text-md" htmlFor="email">
-          Email
+          Votre Email
         </label>
         <input
           className="rounded-md px-4 py-2 bg-inherit border mb-6"
@@ -90,7 +90,7 @@ export default function Login({
           required
         />
         <label className="text-md" htmlFor="password">
-          Password
+          Votre Mot de passe
         </label>
         <input
           className="rounded-md px-4 py-2 bg-inherit border mb-6"
@@ -100,13 +100,13 @@ export default function Login({
           required
         />
         <button className="bg-green-700 rounded-md px-4 py-2 text-foreground mb-2">
-          Sign In
+          Connexion
         </button>
         <button
           formAction={signUp}
           className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
         >
-          Sign Up
+          Inscription
         </button>
         {searchParams?.message && (
           <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">

@@ -18,10 +18,11 @@ export default function AccountForm({ session }: { session: Session | null }) {
     try {
       setLoading(true)
 
+      console.log(user)
       const { data, error, status } = await supabase
         .from('Collectivities')
-        .select(`NameCollectivity, NameEcole, LastRenovationYear, PriceLastRenovation, ElectedId`)
-        .eq('ElectedId', user?.id)
+        .select(`*`)
+        .eq('user_id', user?.id)
       //.single()
       //.limit(1)
 
@@ -36,9 +37,9 @@ export default function AccountForm({ session }: { session: Session | null }) {
         setNameEcole(data[0].NameEcole)
         setLastRenovationYear(data[0].LastRenovationYear)
         setPriceLastRenovation(data[0].PriceLastRenovation)
-        console.log(data)
       }
     } catch (error) {
+      console.log(error)
       alert('Error loading user data!')
     } finally {
       setLoading(false)

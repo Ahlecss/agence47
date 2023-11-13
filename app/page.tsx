@@ -36,14 +36,14 @@ export default function Login({
     const email = formData.get('email') as string
     const password = formData.get('password') as string
     const collectivityName = formData.get('collectivityName') as string
-    const phone = formData.get('phone') as number
+    //const phone = formData.get('phone') as number
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
 
     const { error } = await supabase.auth.signUp({
       email,
       password,
-      phone,
+      //phone,
       options: {
         //emailRedirectTo: `${origin}`,
         emailRedirectTo: `${origin}/auth/callback`,
@@ -116,7 +116,7 @@ export default function Login({
           type="tel"
           name="phone"
           placeholder="0676694819"
-          required
+          //required
         />
         <label className="text-md" htmlFor="collectivityName">
           Votre collectivité de rattachement

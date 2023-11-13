@@ -35,14 +35,17 @@ export default function Login({
     const origin = headers().get('origin')
     const email = formData.get('email') as string
     const password = formData.get('password') as string
+    const collectivityName = formData.get('collectivityName') as string
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
 
     const { error } = await supabase.auth.signUp({
       email,
       password,
+      collectivityName,
       options: {
-        emailRedirectTo: `${origin}${/*/auth/callback*/}`,
+        emailRedirectTo: `${origin}`,
+        //emailRedirectTo: `${origin}$/auth/callback`,
       },
     })
 
@@ -97,6 +100,16 @@ export default function Login({
           type="password"
           name="password"
           placeholder="••••••••"
+          required
+        />
+        <label className="text-md" htmlFor="collectivityName">
+          Votre collectivité de rattachement
+        </label>
+        <input
+          className="rounded-md px-4 py-2 bg-inherit border mb-6"
+          type="text"
+          name="collectivityName"
+          value="Collectivité de l'Auvergne"
           required
         />
         <button className="bg-green-700 rounded-md px-4 py-2 text-foreground mb-2">

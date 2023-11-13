@@ -36,26 +36,25 @@ export default function Login({
     const email = formData.get('email') as string
     const password = formData.get('password') as string
     const collectivityName = formData.get('collectivityName') as string
-    //const phone = formData.get('phone') as number
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
 
     const { error } = await supabase.auth.signUp({
       email,
       password,
-      //phone,
       options: {
         //emailRedirectTo: `${origin}`,
         emailRedirectTo: `${origin}/auth/callback`,
       },
     },
-    {
+    /*{
       data: {
         collectivityName
       }
-    })
+    }*/)
 
     if (error) {
+      console.log(error)
       return redirect('/login?message=Could not authenticate user')
     }
 
@@ -108,16 +107,7 @@ export default function Login({
           placeholder="••••••••"
           required
         />
-        <label className="text-md" htmlFor="phone">
-          Votre numéro de téléphone
-        </label>
-        <input
-          className="rounded-md px-4 py-2 bg-inherit border mb-6"
-          type="tel"
-          name="phone"
-          placeholder="0676694819"
-          //required
-        />
+        {/*
         <label className="text-md" htmlFor="collectivityName">
           Votre collectivité de rattachement
         </label>
@@ -125,9 +115,9 @@ export default function Login({
           className="rounded-md px-4 py-2 bg-inherit border mb-6"
           type="text"
           name="collectivityName"
-          value="Collectivité de l'Auvergne"
           required
         />
+        */}
         <button className="bg-green-700 rounded-md px-4 py-2 text-foreground mb-2">
           Connexion
         </button>

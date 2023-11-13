@@ -45,7 +45,7 @@ export default function Login({
       collectivityName,
       options: {
         //emailRedirectTo: `${origin}`,
-        emailRedirectTo: `${origin}$/auth/callback`,
+        emailRedirectTo: `${origin}/auth/callback`,
       },
     })
 

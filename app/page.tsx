@@ -36,19 +36,21 @@ export default function Login({
     const email = formData.get('email') as string
     const password = formData.get('password') as string
     const collectivityName = formData.get('collectivityName') as string
+    const phone = formData.get('phone') as number
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
 
     const { error } = await supabase.auth.signUp({
       email,
       password,
+      phone,
       options: {
         //emailRedirectTo: `${origin}`,
         emailRedirectTo: `${origin}/auth/callback`,
       },
     },
     {
-      data: { 
+      data: {
         collectivityName
       }
     })
@@ -104,6 +106,16 @@ export default function Login({
           type="password"
           name="password"
           placeholder="••••••••"
+          required
+        />
+        <label className="text-md" htmlFor="phone">
+          Votre numéro de téléphone
+        </label>
+        <input
+          className="rounded-md px-4 py-2 bg-inherit border mb-6"
+          type="tel"
+          name="phone"
+          placeholder="0676694819"
           required
         />
         <label className="text-md" htmlFor="collectivityName">

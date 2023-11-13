@@ -69,7 +69,7 @@ export default function AccountForm({ session }: { session: Session | null }) {
         NameEcole: nameEcole as string,
         LastRenovationYear: lastRenovationYear as string,
         PriceLastRenovation: priceLastRenovation as string,
-      }).eq('ElectedId', user?.id)
+      }).eq('user_id', user?.id)
       if (error) throw error
       alert('Vos informations ont correctement étés mises à jour !')
     } catch (error) {

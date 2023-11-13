@@ -15,7 +15,7 @@ export default function AuthForm() {
       theme="dark"
       showLinks={false}
       providers={[]}
-      redirectTo="https://agence47-1s4o.vercel.app/"
+      redirectTo="http://localhost:3000/auth/callback"
     />
   )
 }

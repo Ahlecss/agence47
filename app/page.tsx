@@ -42,11 +42,15 @@ export default function Login({
     const { error } = await supabase.auth.signUp({
       email,
       password,
-      collectivityName,
       options: {
         //emailRedirectTo: `${origin}`,
         emailRedirectTo: `${origin}/auth/callback`,
       },
+    },
+    {
+      data: { 
+        collectivityName
+      }
     })
 
     if (error) {
